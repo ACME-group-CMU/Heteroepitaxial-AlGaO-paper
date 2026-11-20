@@ -1,0 +1,64 @@
+&CONTROL
+   calculation      = 'scf'
+   verbosity        = 'high'
+   restart_mode     = 'from_scratch'
+   nstep            = 1
+   tstress          = .true.
+   tprnfor          = .true.
+   outdir           = './out2/'
+   prefix           = 'int'
+   max_seconds      = 165600
+   disk_io          = 'low'
+   pseudo_dir       = '/trace/group/acmegroup/posen/pseudopotential'
+/
+&SYSTEM
+  ibrav = 0,
+  nat = 10,
+  ntyp = 2,
+  ecutwfc = 60,
+  ecutrho = 385,
+  occupations = 'smearing',
+  smearing = 'gauss',
+  degauss = 0.02,
+  tot_charge = 0,
+/
+&ELECTRONS
+   electron_maxstep = 500
+   conv_thr         = 1e-9
+   mixing_mode      = 'plain'
+   mixing_beta      = 0.3
+   mixing_ndim      = 24
+   diagonalization  = 'david'
+   diago_david_ndim = 4
+   diago_full_acc   = .false.
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dynamics = 'bfgs',
+/
+
+ATOMIC_SPECIES
+Al 26.982 Al.pbesol-nl-kjpaw_psl.1.0.0.UPF
+O  15.999 O.pbesol-n-kjpaw_psl.1.0.0.UPF
+
+CELL_PARAMETERS angstrom
+   4.228837847  -0.001632130   2.925214986
+   1.532536608   3.941371347   2.925215261
+  -0.002387701  -0.001631955   5.141979518
+
+ATOMIC_POSITIONS angstrom
+Al            3.7317740547        2.5518573498        7.1229826912
+Al            4.9067100654        3.3553028652        9.3656324411
+Al            0.8522809177        0.5828043954        1.6267802497
+Al            2.0272153984        1.3862459710        3.8694219324
+O             1.9622480090        0.2178732730        5.3190925342
+O             4.3747912253        0.9828966331        6.3511451844
+O             1.3841928326        2.9552145720        4.6412645813
+O             3.8522921535        1.7495509982        3.7801537239
+O             1.9066988321        2.1885562640        7.2122538250
+O             3.7967360491        3.7202379322        5.6733172315
+
+K_POINTS automatic
+6 6 6 0 0 0

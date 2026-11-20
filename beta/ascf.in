@@ -1,0 +1,83 @@
+&CONTROL
+   calculation      = 'scf'
+   verbosity        = 'high'
+   restart_mode     = 'from_scratch'
+   nstep            = 100
+   tstress          = .true.
+   tprnfor          = .true.
+   outdir           = './out/'
+   prefix           = 'int'
+   max_seconds      = 155600
+   disk_io          = 'low'
+   pseudo_dir       = '/trace/group/acmegroup/posen/pseudopotential'
+/
+&SYSTEM
+   ntyp             = 2
+   nat              = 20
+   tot_charge       = 0
+   ecutwfc          = 60
+   ecutrho          = 385
+   occupations      = 'smearing'
+   degauss          = 0.02
+   smearing         = 'gauss'
+   ibrav            = 0
+/
+&ELECTRONS
+   electron_maxstep = 500
+   conv_thr         = 1e-9
+   mixing_mode      = 'plain'
+   mixing_beta      = 0.3
+   mixing_ndim      = 24
+   diagonalization  = 'david'
+   diago_david_ndim = 4
+   diago_full_acc   = .false.
+/
+&IONS
+   ion_dynamics     = 'bfgs'
+
+/
+&CELL
+   cell_dynamics    = 'bfgs'
+/
+&FCP
+/
+&RISM
+/
+ATOMIC_SPECIES
+Al 26.982 Al.pbesol-nl-kjpaw_psl.1.0.0.UPF
+O 15.999 O.pbesol-n-kjpaw_psl.1.0.0.UPF
+
+K_POINTS automatic
+3 12 6 0 0 0
+
+CELL_PARAMETERS angstrom
+  11.812685865   0.000000000  -0.050647134
+   0.000000000   2.922565209   0.000000000
+  -1.350154264   0.000000000   5.477300877
+
+
+ATOMIC_POSITIONS angstrom
+Al            0.6741511736       -0.0000000000        1.6182264272
+Al            9.7883804264       -0.0000000000        3.8084273155
+Al            6.5804943645        1.4612826043        1.5929028527
+Al            3.8820372354        1.4612826043        3.8337508899
+Al            3.7917046272        0.0000000000        0.9817815059
+Al            6.6708269728       -0.0000000000        4.4448722368
+Al            9.6980471080        1.4612826043        0.9564585618
+Al            0.7644844920        1.4612826043        4.4701951810
+O             1.0904494424        0.0000000000        3.3328643152
+O             9.3720821576        0.0000000000        2.0937894275
+O             6.9967941529        1.4612826043        3.3075403083
+O             3.4657374470        1.4612826043        2.1191134344
+O             1.9569513518       -0.0000000000        0.3489590148
+O             8.5055802482       -0.0000000000        5.0776947278
+O             7.8632939348        1.4612826043        0.3236349022
+O             2.5992376652        1.4612826043        5.1030188404
+O             5.6349950747       -0.0000000000        1.3048734164
+O             4.8275365253        0.0000000000        4.1217803261
+O            -0.2713486057        1.4612826043        1.3302001034
+O            10.7338802056        1.4612826043        4.0964536391
+
+
+
+

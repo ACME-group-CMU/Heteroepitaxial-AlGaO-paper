@@ -1,0 +1,81 @@
+&CONTROL
+   calculation      = 'vc-relax'
+   verbosity        = 'high'
+   restart_mode     = 'from_scratch'
+   nstep            = 100
+   tstress          = .true.
+   tprnfor          = .true.
+   outdir           = './out/'
+   prefix           = 'int'
+   max_seconds      = 124200
+   disk_io          = 'low'
+   pseudo_dir       = '/trace/group/acmegroup/posen/pseudopotential'
+/
+&SYSTEM
+   ntyp             = 2
+   nat              = 20
+   tot_charge       = 0
+   ecutwfc          = 105
+   ecutrho          = 412
+   occupations      = 'smearing'
+   degauss          = 0.02
+   smearing         = 'gauss'
+   ibrav            = 0
+/
+&ELECTRONS
+   electron_maxstep = 200
+   conv_thr         = 1e-8
+   mixing_mode      = 'plain'
+   mixing_beta      = 0.3
+   mixing_ndim      = 24
+   diagonalization  = 'david'
+   diago_david_ndim = 4
+   diago_full_acc   = .false.
+/
+&IONS
+   ion_dynamics     = 'bfgs'
+/
+&CELL
+   cell_dynamics    = 'bfgs'
+   cell_dofree      = 'shape',
+/
+&FCP
+/
+&RISM
+/
+ATOMIC_SPECIES
+Ga 69.723 Ga.pbesol-dnl-kjpaw_psl.1.0.0.UPF
+O 15.999 O.pbesol-n-kjpaw_psl.1.0.0.UPF
+
+K_POINTS automatic
+3 12 6 0 0 0
+
+CELL_PARAMETERS angstrom
+  12.6372853534  0.0000000000  0.0168028144
+  0.0000000000  3.1365504782  0.0000000000
+  -1.4116652125  0.0000000000  5.8280160802
+
+ATOMIC_POSITIONS angstrom
+Ga            0.7033271325        0.0000000000        1.6658476677
+Ga           10.1953331979        0.0000000000        4.0087337827
+Ga            6.8379319290        1.5225973193        1.6740039773
+Ga            4.0607284014        1.5225973193        4.0005774731
+Ga            3.9317116714        0.0000000000        1.0632358713
+Ga            6.9669486590        0.0000000000        4.6113455792
+Ga           10.0663159340        1.5225973193        1.0713927870
+Ga            0.8323443963        1.5225973193        4.6031886634
+O             1.2278620670       -0.0000000000        3.4287375075
+O             9.6707982634       -0.0000000000        2.2458439429
+O             7.3624665978        1.5225973193        3.4368941971
+O             3.5361937326        1.5225973193        2.2376872533
+O             2.0337419430        0.0000000000        0.3523839756
+O             8.8649183874        0.0000000000        5.3221974748
+O             8.1683464848        1.5225973193        0.3605406727
+O             2.7303138455        1.5225973193        5.3140407778
+O             5.8436041137       -0.0000000000        1.3906758738
+O             5.0550562167       -0.0000000000        4.2839055766
+O            -0.2910004150        1.5225973193        1.3825191700
+O            11.1896607453        1.5225973193        4.2920622804
+
+
+
